@@ -2,10 +2,6 @@ body {
 	margin: 0;
 	padding: 10px;
 }
-.grid-container {
-    width: 100%;
- }
-.row:before,
 .row:after {
     content: "";
     display: table ;
@@ -17,9 +13,8 @@ body {
 	border: 1px solid #999;
 	background-color: #eee;
 }
-[class*="col-"] {
+[class^="col-"] {
     float: left;
-    min-height: 1px;
     box-sizing: border-box;
     padding: 10px;
 }
