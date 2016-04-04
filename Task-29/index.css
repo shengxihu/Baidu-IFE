@@ -1,0 +1,15 @@
+input{
+	margin: 30px 10px 0 10px;
+}
+.message{
+	width: 100px;
+	height: 20px;
+	margin-left: 60px;
+}
+input:invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  border: 1px solid green;
+}
