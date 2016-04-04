@@ -8,9 +8,11 @@ function checkItemValid(){
 		message[2].style.display="none";
 		message[3].style.display="none";
 	})
-	item.addEventListener("focusout",checkItem(message,item))
+	item.addEventListener("focusout",checkItem)
 }
-function checkItem(message,item){
+function checkItem(){
+	var item=document.getElementById("item"),
+	message=document.getElementsByClassName("item");
 	if (item.value == null || item.value == "") {
 		message[0].style.display="none";
 		message[1].style.display="none";
@@ -38,7 +40,7 @@ function checkPasswardValid(){
 		message[2].style.display="none";
 		message[3].style.display="none";
 	})
-	passward.addEventListener("focusout",checkPassward())
+	passward.addEventListener("focusout",checkPassward);
 	return passward;
 }
 function checkPassward(){
@@ -72,7 +74,7 @@ function checkRepasswardValid(){
 		message[2].style.display="none";
 		message[3].style.display="none";
 	})
-	repassward.addEventListener("focusout",checkRepassward())
+	repassward.addEventListener("focusout",checkRepassward)
 }
 function checkRepassward(){
 	var repassward=document.getElementById("repassward"),
@@ -81,7 +83,7 @@ function checkRepassward(){
 	if (repassward.value == null || repassward.value == "") {
 		message[0].style.display="none";
 		message[1].style.display="none";
-		message[2].style.display="none";
+				message[2].style.display="none";
 		message[3].style.display="block";
 	}else if(repassward.value != passward.value) {
 		message[0].style.display="none";
@@ -105,7 +107,7 @@ function checkEmailValid(){
 		message[2].style.display="none";
 		message[3].style.display="none";
 	})
-	email.addEventListener("focusout",checkEmail())
+	email.addEventListener("focusout",checkEmail)
 }
 function checkEmail(){
 	var email=document.getElementById("email"),
@@ -140,7 +142,7 @@ function checkPhoneValid(){
 		message[2].style.display="none";
 		message[3].style.display="none";
 	})
-	phone.addEventListener("focusout",checkPhone())
+	phone.addEventListener("focusout",checkPhone)
 }
 function checkPhone(){
 	var phone=document.getElementById("phone"),
