@@ -18,16 +18,19 @@ function checkItem(){
 		message[1].style.display="none";
 		message[2].style.display="none";
 		message[3].style.display="block";
+		return false;
 	}else if(item.value.length < 4 || item.value.length > 16) {
 		message[0].style.display="none";
 		message[1].style.display="none";
 		message[2].style.display="block";
 		message[3].style.display="none";
+		return false;
 	} else {
 		message[0].style.display="none";
 		message[1].style.display="block";
 		message[2].style.display="none";
 		message[3].style.display="none";
+		return true;
 	}
 }
 function checkPasswardValid(){
@@ -41,7 +44,6 @@ function checkPasswardValid(){
 		message[3].style.display="none";
 	})
 	passward.addEventListener("focusout",checkPassward);
-	return passward;
 }
 function checkPassward(){
 	var passward=document.getElementById("passward"),
@@ -51,22 +53,24 @@ function checkPassward(){
 		message[1].style.display="none";
 		message[2].style.display="none";
 		message[3].style.display="block";
+		return false;
 	}else if(passward.value.length != 6) {
 		message[0].style.display="none";
 		message[1].style.display="none";
 		message[2].style.display="block";
 		message[3].style.display="none";
+		return false;
 	} else {
 		message[0].style.display="none";
 		message[1].style.display="block";
 		message[2].style.display="none";
 		message[3].style.display="none";
+		return passward;
 	}
 }
 function checkRepasswardValid(){
 	var repassward=document.getElementById("repassward"),
-	message=document.getElementsByClassName("repassward"),
-	passward=checkPassward();
+	message=document.getElementsByClassName("repassward");
 	repassward.addEventListener("focusin",function(){
 		message[0].style.display="block";
 		message[0].style.visibility="visible";
@@ -74,7 +78,7 @@ function checkRepasswardValid(){
 		message[2].style.display="none";
 		message[3].style.display="none";
 	})
-	repassward.addEventListener("focusout",checkRepassward)
+	repassward.addEventListener("focusout",checkRepassward);
 }
 function checkRepassward(){
 	var repassward=document.getElementById("repassward"),
@@ -83,18 +87,21 @@ function checkRepassward(){
 	if (repassward.value == null || repassward.value == "") {
 		message[0].style.display="none";
 		message[1].style.display="none";
-				message[2].style.display="none";
+		message[2].style.display="none";
 		message[3].style.display="block";
+		return false;
 	}else if(repassward.value != passward.value) {
 		message[0].style.display="none";
 		message[1].style.display="none";
 		message[2].style.display="block";
 		message[3].style.display="none";
+		return false;
 	} else {
 		message[0].style.display="none";
 		message[1].style.display="block";
 		message[2].style.display="none";
 		message[3].style.display="none";
+		return true;
 	}
 }
 function checkEmailValid(){
@@ -119,17 +126,20 @@ function checkEmail(){
 		message[1].style.display="none";
 		message[2].style.display="none";
 		message[3].style.display="block";
+		return false;
 	}else if(apos<1||dotpos-apos<1) {
 		console.log(dotpos+email.value)
 		message[0].style.display="none";
 		message[1].style.display="none";
 		message[2].style.display="block";
 		message[3].style.display="none";
+		return false;
 	} else {
 		message[0].style.display="none";
 		message[1].style.display="block";
 		message[2].style.display="none";
 		message[3].style.display="none";
+		return true;
 	}
 }
 function checkPhoneValid(){
@@ -152,16 +162,45 @@ function checkPhone(){
 		message[1].style.display="none";
 		message[2].style.display="none";
 		message[3].style.display="block";
+		return false;
 	}else if(phone.value.length != 11) {
 		message[0].style.display="none";
 		message[1].style.display="none";
 		message[2].style.display="block";
 		message[3].style.display="none";
+		return false;
 	} else {
 		message[0].style.display="none";
 		message[1].style.display="block";
 		message[2].style.display="none";
 		message[3].style.display="none";
+		return true;
+	}
+}
+function checkAll(){
+	var bt=document.getElementById('button'),
+	message="",
+	label=document.getElementsByTagName("label");
+	bt.onclick=function(){
+		if (!checkItem()) {
+			message+=label[0].innerHTML+",";
+		};
+		if (!checkPassward()) {
+			message+=label[1].innerHTML+",";
+		}
+		if (!checkRepassward()) {
+			message+=label[2].innerHTML+",";
+		};
+		if (!checkEmail()) {
+			message+=label[3].innerHTML+",";
+		};
+		if (!checkPhone()) {
+			message+=label[4].innerHTML;
+		};
+		if (!checkItem() || !checkPassward() || !checkRepassward() || !checkEmail() || !checkPhone()) {
+			alert(message+"填写有误！");
+		};
+		return false;
 	}
 }
 checkItemValid();
@@ -169,3 +208,4 @@ checkPasswardValid();
 checkRepasswardValid();
 checkEmailValid();
 checkPhoneValid();
+checkAll();
