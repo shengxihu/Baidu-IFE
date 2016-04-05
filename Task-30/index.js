@@ -199,6 +199,7 @@ function checkAll(){
 		};
 		if (!checkItem() || !checkPassward() || !checkRepassward() || !checkEmail() || !checkPhone()) {
 			alert(message+"填写有误！");
+			message="";
 		};
 		return false;
 	}
