@@ -1,39 +1,27 @@
 var arr=new Array;
-function addNumberLeft(){
-	var input=document.getElementById("input").value;
-	if (input) {
-		arr.unshift(input);
-	}else{
-		alert("输入为空,请输入字符");
-	}
+function addLeft(){
+	arr.unshift(input);
 	drawView();
 }
-function addNumberRight(){
-	var input=document.getElementById("input").value;
-	if (input) {
-		arr.push(input);
-	}else{
-		alert("输入为空,请输入字符");
-	}
+function addRight(){
+	arr.push(input);
 	drawView();
 }
-function deleteNumberLeft(){
-	var input=document.getElementById("input").value;
-	if (input) {
-		arr.shift(input);
-	}else{
-		alert("输入为空,请输入字符");
-	}
+function deleteLeft(){
+	arr.shift(input);
 	drawView();
 }
-function deleteNumberRight(){
+function deleteRight(){
+	arr.pop(input);
+	drawView();
+}
+function getValue(){
 	var input=document.getElementById("input").value;
 	if (input) {
-		arr.pop(input);
+		return input;
 	}else{
-		alert("输入为空,请输入字符");
+		alert("请输入字符！")
 	}
-	drawView();
 }
 function drawView(){
 	var view=document.getElementById("view"),
@@ -49,9 +37,25 @@ function init(){
 	add_right=document.getElementById("add-right"),
 	delete_left=document.getElementById("delete-left"),
 	delete_right=document.getElementById("delete-right");
-	add_left.onclick=addNumberLeft;
-	add_right.onclick=addNumberRight;
-	delete_left.onclick=deleteNumberLeft;
-	delete_right.onclick=deleteNumberRight;
+	add_left.onclick=function(){
+		if (input=getValue()) {
+			addLeft(input);
+		}
+	}
+	add_right.onclick=function(){
+		if (input=getValue()) {
+			addRight(input);
+		}
+	}
+	delete_left.onclick=function(){
+		if (input=getValue()) {
+			deleteLeft(input);
+		}
+	}
+	delete_right.onclick=function(){
+		if (input=getValue()) {
+			deleteRight(input);
+		}
+	}
 }
 init();
