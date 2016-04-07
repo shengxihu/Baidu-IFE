@@ -1,0 +1,11 @@
+.control,
+.view{
+	text-align: center;
+}
+.number{
+	height: 20px;
+	padding: 10px;
+	margin: 10px;
+	display: inline-block;
+	background: red;
+}
