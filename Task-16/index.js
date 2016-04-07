@@ -13,28 +13,23 @@ op;
  * 从用户输入中获取数据，向aqiData中增加一条数据
  * 然后渲染aqi-list列表，增加新增的数据
  */
-var add=true;
 function addAqiData() {
 	var city=document.getElementById("aqi-city-input").value,
 	weather=document.getElementById("aqi-value-input").value;
 	if (/^([a-z]+|[\u4e00-\u9fa5]+)$/i.test(city) && /^\d+$/.test(weather)) {
 		aqiData[city]=weather;
-		add=true;
+		return city;
 	}else{
 		alert("输入数据有误");
-		add=false;
+		return null;
 	}
-	return city;
 }
 /**
  * 渲染aqi-table表格
  */
 var result=new Array,
 delt;
-function renderAqiList(city,op,add) {
-	if (!add) {
-		return null;
-	}
+function renderAqiList(city,op) {
 	var aqi_table=document.getElementById("aqi-table");
 	delt=document.getElementsByClassName("delt");
 	if(op){
@@ -51,10 +46,12 @@ function renderAqiList(city,op,add) {
  */
 function addBtnHandle() {
   var city=addAqiData();
-  op=true;
-  renderAqiList(city,op,add);
-  delBtnHandle(city);
-  i++;
+  if (city) {
+  	op=true;
+    renderAqiList(city,op);
+    delBtnHandle(city);
+    i++;
+  }
 }
 
 /**
