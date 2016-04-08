@@ -29,7 +29,7 @@ function opArr(i){
 	regexp=new RegExp("^[0-9]*$");
 	test=input>=10&&input<=100&&input.match(regexp);
 	if (!test){
-		alert("请输入字符10~100的数字！")
+		alert("请输入10~100的数字！")
 		return null;
 	}
 	switch(i){
