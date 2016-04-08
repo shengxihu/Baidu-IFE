@@ -1,0 +1,17 @@
+.control{
+	text-align: center;
+}
+.arr_view{
+	width: 10px;
+	background: red;
+	display: inline-block;
+	margin: 2px;
+}
+.view{
+	height: 300px;
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	margin-top:10px;
+}

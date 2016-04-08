@@ -29,7 +29,7 @@ function drawView(){
 	for(var i=0;i<arr.length;i++){
 		result+="<div class='number'>"+arr[i]+"</div>";
 	}
-	view.innerHTML=result;
+	view.innerHTML+=result;
 }
 function init(){
 	//给按钮添加事件
