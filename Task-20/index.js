@@ -6,13 +6,13 @@ function drawView(arr){
 	}
 	view.innerHTML=result;
 }
-function search(arr_2){
+function search(arr){
 	var input_search=document.getElementById("input-search").value,
-	rex = new RegExp(input_search, 'g'),
-	result;
-	for(var i=0;i<arr_2.length;i++){
-		result=arr_2[i].replace(rex,"<b style='color:#FFFEFF;'>"+input_search+"</b>");
-		arr_2[i]=result;
+	result,
+	rex=new RegExp(input_search,"g");
+	for(var i=0;i<arr.length;i++){
+		result=arr[i].replace(rex,"<b style='color:#FFFEFF;'>"+input_search+"</b>");
+		arr[i]=result;
 	}
 }
 function getData(){
@@ -29,46 +29,41 @@ function getData(){
 	}
 	return data;
 }
-function opArr(flag,arr_1,arr_2,data){
+function opArr(flag,arr,data){
 	var value;
 	switch(flag){
 		case 0:
 			for(var i=data.length-1;i>=0;i--){
 				value=data[i];
-				arr_1.unshift(value);
-				arr_2.unshift(value);
+				arr.unshift(value);
 			}
 			break;
 		case 1:
 			for(var i=0;i<data.length;i++){
 				value=data[i];
-				arr_1.push(value);
-				arr_2.push(value);
+				arr.push(value);
 			}
 			break;
 		case 2:
-			arr_1.shift(arr_1[0]);
-			arr_2.shift(arr_2[0]);
+			arr.shift(arr[0]);
 			break;
 		case 3:
-			arr_1.pop(arr_1[arr_1.length-1]);
-			arr_2.pop(arr_2[arr_1.length-1]);
+			arr.pop(arr[arr.length-1]);
 			break;
 		case 4:
-			search(arr_2);
+			search(arr)
 			break;
 	}
 }
 function init(){
 	var button=document.getElementsByTagName("button"),
-	arr_1=new Array,
-	arr_2=new Array;
+	arr=new Array;
 	for(var flag=0;flag<button.length;flag++){
 		(function(flag){
 			button[flag].onclick=function(){
 				var data=getData();
-				opArr(flag,arr_1,arr_2,data);
-				flag===4?drawView(arr_2):drawView(arr_1);
+				opArr(flag,arr,data);
+				drawView(arr);
 			}
 		})(flag)
 	}
