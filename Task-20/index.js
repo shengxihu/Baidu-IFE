@@ -8,11 +8,10 @@ function drawView(arr){
 }
 function search(arr_2){
 	var input_search=document.getElementById("input-search").value,
-	result,
-	temp;
+	rex = new RegExp(input_search, 'g'),
+	result;
 	for(var i=0;i<arr_2.length;i++){
-		result=arr_2[i].replace(input_search,"<b style='color:#FFFEFF;'>"+input_search+"</b>");
-		temp=arr_2[i];
+		result=arr_2[i].replace(rex,"<b style='color:#FFFEFF;'>"+input_search+"</b>");
 		arr_2[i]=result;
 	}
 }
