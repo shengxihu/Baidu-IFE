@@ -6,14 +6,16 @@ function drawView(arr){
 	}
 	view.innerHTML=result;
 }
-function search(arr){
+function search(arr_1){
 	var input_search=document.getElementById("input-search").value,
 	result,
 	rex=new RegExp(input_search,"g");
-	for(var i=0;i<arr.length;i++){
-		result=arr[i].replace(rex,"<b style='color:#FFFEFF;'>"+input_search+"</b>");
-		arr[i]=result;
+	for(var i=0;i<arr_1.length;i++){
+		result=arr_1[i].replace(rex,"<b style='color:#FFFEFF;'>"+input_search+"</b>");
+		arr_1[i]=result;
 	}
+	alert(arr_1);
+	return arr_1;
 }
 function getData(){
 	var input_data=document.getElementById("input-data").value,
@@ -29,7 +31,7 @@ function getData(){
 	}
 	return data;
 }
-function opArr(flag,arr,data){
+function opArr(flag,arr,arr_1,data){
 	var value;
 	switch(flag){
 		case 0:
@@ -51,19 +53,26 @@ function opArr(flag,arr,data){
 			arr.pop(arr[arr.length-1]);
 			break;
 		case 4:
-			search(arr)
+			arr_1=arr;
+			arr_1=search(arr_1);
 			break;
 	}
+	return arr_1;
 }
 function init(){
 	var button=document.getElementsByTagName("button"),
-	arr=new Array;
+	arr=new Array,
+	arr_1=new Array;
 	for(var flag=0;flag<button.length;flag++){
 		(function(flag){
 			button[flag].onclick=function(){
 				var data=getData();
-				opArr(flag,arr,data);
-				drawView(arr);
+				arr_1=opArr(flag,arr,arr_1,data);
+				if (flag==4) {
+					drawView(arr_1);
+				}else{
+					drawView(arr);
+				}
 			}
 		})(flag)
 	}
