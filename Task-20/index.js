@@ -69,7 +69,7 @@ function init(){
 			button[flag].onclick=function(){
 				var data=getData();
 				opArr(flag,arr_1,arr_2,data);
-				flag==4?drawView(arr_2):drawView(arr_1);
+				flag===4?drawView(arr_2):drawView(arr_1);
 			}
 		})(flag)
 	}
