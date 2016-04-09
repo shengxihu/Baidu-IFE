@@ -23,8 +23,7 @@ function drawView(arr){
 	}
 	view.innerHTML=result;
 }
-arr=new Array;
-function opArr(i){
+function opArr(i,arr){
 	var input=document.getElementById("input").value,
 	regexp=new RegExp("^[0-9]*$");
 	test=input>=10&&input<=100&&input.match(regexp);
@@ -52,11 +51,12 @@ function opArr(i){
 	drawView(arr);
 }
 function init(){
-	var button=document.getElementsByTagName("button");
+	var button=document.getElementsByTagName("button"),
+	arr=new Array;
 	for(var i=0;i<button.length;i++){
 		(function(i){
 			button[i].onclick=function(){
-				opArr(i);
+				opArr(i,arr);
 			}
 		})(i)
 	}

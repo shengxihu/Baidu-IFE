@@ -8,11 +8,11 @@ function addRight(){
 	drawView();
 }
 function deleteLeft(){
-	arr.shift(input);
+	arr.shift(arr[0]);
 	drawView();
 }
 function deleteRight(){
-	arr.pop(input);
+	arr.pop(arr[arr.length-1]);
 	drawView();
 }
 function getValue(){
