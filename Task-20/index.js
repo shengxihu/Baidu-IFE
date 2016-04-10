@@ -14,7 +14,6 @@ function search(arr_1){
 		result=arr_1[i].replace(rex,"<b style='color:#FFFEFF;'>"+input_search+"</b>");
 		arr_1[i]=result;
 	}
-	alert(arr_1);
 	return arr_1;
 }
 function getData(){
