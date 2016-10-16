@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>表单（三）联动</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<form class="identity" id="identity">
+		<label>在校生
+			<input type="radio" checked="checked" class="radio-left" name="students" value="在校生"/>
+		</label>
+		<label>非在校生
+			<input type="radio" name="students" value="非在校生"/>
+		</label>
+	</form>
+	<form class="city">
+		<label for="cities">学校</label>
+		<select id="cities">
+			<option class="Beijing">北京</option>
+			<option class="Shanghai">上海</option>
+			<option class="Guangzhou">广州</option>
+			<option class="Shenzhen">深圳</option>
+			<option class="Tianjing">天津</option>
+			<option class="Wuhan">武汉</option>
+		</select>
+		<select class="university" name="Beijing">
+			<option>北京大学</option>
+			<option>清华大学</option>
+			<option>中国人民大学</option>
+		</select>
+		<select class="university university-default" name="Shanghai">
+			<option>复旦大学</option>
+			<option>上海交通大学</option>
+			<option>同济大学</option>
+		</select>
+		<select class="university university-default" name="Guangzhou">
+			<option>中山大学</option>
+			<option>华南理工大学</option>
+			<option>暨南大学</option>
+		</select>
+		<select class="university university-default" name="Shenzhen">
+			<option>南方科技大学</option>
+			<option>深圳大学</option>
+		</select>
+		<select class="university university-default" name="Tianjing">
+			<option>南开大学</option>
+			<option>天津医科大学</option>
+			<option>天津中医药大学</option>
+		</select>
+		<select class="university university-default" name="Wuhan">
+			<option>武汉大学</option>
+			<option>华中科技大学</option>
+			<option>华中师范大学</option>
+		</select>
+	</form>
+	<form class="company form-default" id="company">
+		<label>就业单位
+			<input class="company-info" id="company-info" type="text"/>
+		</label>
+	</form>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

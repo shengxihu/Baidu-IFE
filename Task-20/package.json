@@ -1,0 +1,19 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "A simple webpack example",
+  "main": "main.js",
+  "dependencies": {
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "webpack"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "shengxihu",
+  "license": "ISC"
+}

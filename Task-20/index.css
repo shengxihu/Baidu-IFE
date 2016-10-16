@@ -1,0 +1,15 @@
+.control,
+.view{
+	text-align: center;
+}
+input,
+button{
+	vertical-align: top;
+}
+.number{
+	height: 20px;
+	padding: 10px;
+	margin: 10px;
+	display: inline-block;
+	background: red;
+}
